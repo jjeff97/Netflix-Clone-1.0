@@ -6,6 +6,6 @@ const instance = axios.create({
 
 
 
-export defualt instance;
+export default instance;
 
 
