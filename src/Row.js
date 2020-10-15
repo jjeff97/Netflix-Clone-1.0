@@ -13,14 +13,22 @@ function Row({ title, fetchUrl }) {
       return request;
     }
     fetchData();
-  }, []);
+  }, [fetchUrl]);
+
+  console.table(movies);
 
   return (
-    <div>
+    <div className="row">
       <h2>{title}</h2>
 
-      {/* container -> posters */}
-    </div>
+      <div className="row_posters">
+        {/*row_posters*/}
+        {movies.map(movie => (
+          <img src={movies.poster_path} alt={movie.name} />
+        ))}
+        
+        </div>
+ </div>
   );
 }
 
