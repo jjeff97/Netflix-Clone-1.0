@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from './axios';
 
+const base_url = "https://image.tmbd.org/t/p/original/";
+
 function Row({ title, fetchUrl }) {
   const [movies, setMovies] = useState([]);
 
@@ -15,7 +17,7 @@ function Row({ title, fetchUrl }) {
     fetchData();
   }, [fetchUrl]);
 
-  console.table(movies);
+  
 
   return (
     <div className="row">
@@ -24,12 +26,12 @@ function Row({ title, fetchUrl }) {
       <div className="row_posters">
         {/*row_posters*/}
         {movies.map(movie => (
-          <img src={movies.poster_path} alt={movie.name} />
+          <img src={`${base_url}${movie.poster_path}`} alt={movie.name} />
         ))}
         
         </div>
  </div>
-  );
+  )
 }
 
 export default Row;
