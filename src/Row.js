@@ -10,10 +10,12 @@ import movieTrailer from 'movie-trailer';
 
 const base_url = "https://image.tmdb.org/t/p/original/";
 
-function Row({ title, fetchUrl, isLargeRow }) {
+ function Row({ title, fetchUrl, isLargeRow }) {
 
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState("");
+  
+
 
   // a snippet of code that runs based on a specific variable
   useEffect(() => {
@@ -44,7 +46,7 @@ if (trailerUrl) {
     .then((url) => {
       //https://www.youtube.com/watch?v=idCWusGQ0YI
 const urlParams =  new URLSearchParams(new URL(url).search);
-setTrailerUrl(urlParams.get("v"));
+setTrailerUrl(urlParams.get('v'));
 
     })
 .catch((error) => console.log(error));
@@ -66,11 +68,11 @@ setTrailerUrl(urlParams.get("v"));
           alt={movie.name}
            />
         ))}
-        
+
         </div>
          {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
  </div>
   );
-}
+        }
 
-export default Row;
+        export default Row;
